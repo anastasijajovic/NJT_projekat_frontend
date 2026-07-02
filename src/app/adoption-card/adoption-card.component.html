@@ -1,0 +1,25 @@
+<div class="gridContainer">
+    <div class="adoptions">
+        <div class="adoptionInfo">
+        <h4>Date: {{pipe.transform(adoption.date,'dd.MM.yyyy.')}}</h4>
+        <h4>Vet report before adopting: {{adoption.vetReport}}</h4>
+        <h4>Pet: {{adoption.petId.type.name}} {{adoption.petId.name}}</h4>
+        <h4>Person: {{adoption.personId.name}} {{adoption.personId.surname}}</h4>
+        <h4 class="buttonDelete" *ngIf="comeFrom==1">
+            <button (click)="delete(adoption.adoptionId)" class="button">Delete</button></h4>
+        <h4 class="buttons" *ngIf="comeFrom==2">
+        <button (click)="decline(adoption.adoptionId)" class="button">Decline</button>
+        <button (click)="accept(adoption.adoptionId)" class="button">Accept</button>
+        </h4>
+        <h4 class="status" *ngIf="comeFrom==3 && adoption.status==0" style="color:orangered">
+            Status: On wait
+        </h4>
+        <h4 class="status" *ngIf="comeFrom==3 && adoption.status==1" style="color:green">
+            Status: Accepted
+        </h4>
+        <h4 class="status" *ngIf="comeFrom==3 && adoption.status==2" style="color:red">
+            Status: Declined
+        </h4>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>All Adoptions</title>
+        
+    </head>
+
+    <body>
+        <h1>All Adoptions</h1>
+        
+        <div class="adoptions">
+            <app-adoption-card *ngFor="let a of adoptions"
+            [adoption] = "a"
+            [comeFrom]="1"
+            (removedAdoption)="delete(a)"
+            ></app-adoption-card>
+        </div>
+        
+    </body>
+

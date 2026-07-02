@@ -1,0 +1,45 @@
+
+<h1>Update Person</h1>
+
+<div class="formToComplete">
+<form [formGroup] = "updatePersonForm" action="#" id="form" (ngSubmit) = "updatePerson()">
+
+    <label>JMBG:   </label>
+    <input type="text" autocomplete="on" [formControlName]="'personJmbg'" placeholder="{{receivedInput}}" readonly>
+    <br>
+    <br>
+
+    <label >Name:   </label>
+    <input type="text" name="name" [formControlName]="'personName'" autocomplete="on"  placeholder="{{person1.name}}">
+    <br>
+    <br>
+
+    <label >Surname:   </label>
+    <input type="text" name="surname" [formControlName]="'personSurname'" placeholder="{{person1.surname}}">
+    <br>
+    <br>
+
+    <label >Year of birth:   </label>
+    <input type="text" name="year" [formControlName]="'personYear'" placeholder="{{person1.year_of_birth}}">
+    <br>
+    <br>
+
+    <label >Phone number:   </label>
+    <input type="text" name="phone" [formControlName]="'personPhone'" placeholder="{{person1.phone_number}}">
+    <br>
+    <br>
+
+    <label >City:   </label>
+    <select [formControlName]="'personCity'">
+        <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+      </select>
+    <br>
+    <br>
+    <br>
+
+    <div class="buttons">
+      <input type="submit" value="Update" class="button">
+    </div>
+    
+</form>
+</div>

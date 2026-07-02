@@ -1,0 +1,45 @@
+<h1>Update Pet</h1>
+<form [formGroup] = "updatePetForm" action="#" id="form" (ngSubmit) = "updatePet()">
+
+    <input type="hidden" autocomplete="on" [formControlName]="'petId'">
+
+    <label >Name:   </label>
+    <input type="text" name="name" [formControlName]="'petName'" autocomplete="on" placeholder="{{pet1.name}}">
+    <br>
+    <br>
+
+    <label >Type:   </label>
+    <select [formControlName]="'petType'">
+        <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+      </select>
+    <br>
+    <br>
+
+    <label >Gender:   </label>
+    <select name="gender" id="gender" [formControlName]="'petGender'">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br>
+    <br>
+
+    <label >Age:   </label>
+    <input type="text" name="age" [formControlName]="'petAge'" placeholder="{{pet1.age}}">
+    <br>
+    <br>
+
+    <label >Description:   </label>
+    <textarea name="description" id="description" [formControlName]="'petDescription'" placeholder="{{pet1.description}}"></textarea>
+    <br>
+    <br>
+
+    <label >Image:   </label>
+    <input type="text" name="image" [formControlName]="'petImage'" placeholder="{{pet1.image}}">
+    <br>
+    <br>
+    <br>
+
+    <div class="buttons">
+        <input type="submit" value="Update" class="button">
+    </div>
+</form>

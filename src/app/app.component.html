@@ -1,0 +1,70 @@
+<head>
+  <title>Wecome</title>
+</head>
+
+<body>
+  <div class="navbar navbar-default" *ngIf="userService.getUserStatus()=='worker'">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+        <div class="container">
+        <ul class="nav nav-bar">
+            <router-outlet>
+              <div class="justLinks">
+                <li><a routerLink='/pets'>Pets</a></li>
+                <li><a routerLink="/people">People</a></li>
+                <li><a routerLink="/adoptions">Adoptions</a></li>
+                <li><a routerLink="/add_pet">Add pet</a></li>
+                <li><a routerLink="/add_person">Add person</a></li>
+                <li><a routerLink="/add_adoption">Add adoption</a></li>
+                <li><a routerLink="/requests">Requests</a></li>
+                <li><a routerLink="/login_guest" (click)="logout()" class="logout1">Logout</a></li>
+              </div>
+            </router-outlet>
+            
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="navbar navbar-default" *ngIf="personService.getUserStatus()=='guest'">
+  <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+      <div class="container">
+      <ul class="nav nav-bar">
+          <router-outlet>
+            <div class="justLinks">
+              <li><a routerLink='/pets'>Pets</a></li>
+              <li><a routerLink="/requests">My adoptions</a></li>
+              <li><a routerLink="/login_guest" (click)="logout()" class="logout2">Logout</a></li>
+            </div>
+          </router-outlet>
+          
+      </ul>
+      </div>
+  </div>
+</div>
+
+
+<div class="navbar navbar-default" *ngIf="userService.getUserStatus()!='worker' && personService.getUserStatus()!='guest'">
+  <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+      <div class="container">
+      <ul class="nav nav-bar">
+          <router-outlet>
+            <div class="justLinks">
+              <li><a routerLink='/pets'>Pets</a></li>
+              <li><a routerLink='/login_guest'>User login</a></li>
+              <li><a routerLink='/login'>Shelter login</a></li>
+            </div>
+          </router-outlet>
+          
+      </ul>
+      </div>
+  </div>
+</div>
+
+</body>

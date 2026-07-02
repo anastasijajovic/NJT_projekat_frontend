@@ -1,0 +1,45 @@
+<h1>Add New Pet</h1>
+<form [formGroup] = "newPetForm" action="#" id="form" (ngSubmit) = "addPet()">
+
+    <input type="hidden" autocomplete="on" [formControlName]="'petId'">
+
+    <label >Name:   </label>
+    <input type="text" name="name" [formControlName]="'petName'" autocomplete="on">
+    <br>
+    <br>
+
+    <label >Type:   </label>
+    <select [formControlName]="'petType'">
+        <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+      </select>
+    <br>
+    <br>
+
+    <label >Gender:   </label>
+    <select name="gender" id="gender" [formControlName]="'petGender'">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br>
+    <br>
+
+    <label >Age:   </label>
+    <input type="text" name="age" [formControlName]="'petAge'">
+    <br>
+    <br>
+
+    <label >Description:   </label>
+    <textarea type="text" name="description" [formControlName]="'petDescription'"></textarea>
+    <br>
+    <br>
+
+    <label >Image:   </label>
+    <input type="text" name="image" [formControlName]="'petImage'">
+    <br>
+    <br>
+    <br>
+
+    <div class="buttons">
+        <input type="submit" value="Add" class="button">
+    </div>
+</form>

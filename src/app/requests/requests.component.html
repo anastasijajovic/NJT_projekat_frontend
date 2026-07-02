@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Requests for adoption</title>
+        
+    </head>
+
+    <body>
+        <div *ngIf="userService.getUserStatus()=='worker'">
+            <h1>Requests for adoption</h1>
+        
+        <div class="adoptions">
+            <app-adoption-card *ngFor="let a of adoptions"
+            [adoption] = "a"
+            [comeFrom]="2"
+            (declinedAdoption)="decline(a.adoptionId)"
+            (acceptedAdoption)="accept(a.adoptionId)"
+            ></app-adoption-card>
+        </div>
+        </div>
+        
+
+        <div *ngIf="personService.getUserStatus()=='guest'">
+            <h1>My requests</h1>
+        
+        <div class="adoptions">
+            <app-adoption-card *ngFor="let a of personAdoptions"
+            [adoption] = "a"
+            [comeFrom]="3"
+            (declinedAdoption)="decline(a.adoptionId)"
+            (acceptedAdoption)="accept(a.adoptionId)"
+            ></app-adoption-card>
+        </div>
+        </div>
+        
+    </body>
+

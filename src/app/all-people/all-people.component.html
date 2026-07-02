@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+
+    <body>
+        <h1>All People</h1>
+        <div  class="searchPeople">
+            <input (input)="onSearch(search.value)" type="text" placeholder="Search by person's surname" #search class="search">
+        </div>
+        <div class="people">
+            <app-person-card *ngFor="let p of filteredPeople"
+            [person] = "p"
+            (removedPerson)="deletePerson(p)"
+            ></app-person-card>
+        </div>
+    </body>

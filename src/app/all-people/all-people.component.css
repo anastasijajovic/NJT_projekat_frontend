@@ -1,0 +1,38 @@
+h1{
+    text-align: center;
+}
+
+app-person-card{
+    border: 5px;
+    border-color: rgb(255, 164, 27);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.people{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 11%;
+    margin-right: 8%;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.searchPeople{
+    position: right;
+    padding-left: 75%;
+    right: 150px;
+}
+
+.search{
+    height: 20px;
+    width: 250px;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-y: scroll;
+    height: 100vh;
+    margin: auto;
+    padding-bottom: 10%;
+}
