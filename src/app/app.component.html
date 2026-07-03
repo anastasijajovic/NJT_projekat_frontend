@@ -1,5 +1,5 @@
 <head>
-  <title>Wecome</title>
+  <title>Welcome</title>
 </head>
 
 <body>
@@ -10,7 +10,7 @@
         <div class="container">
         <ul class="nav nav-bar">
             <router-outlet>
-              <div class="justLinks">
+              <div class="left-links">
                 <li><a routerLink='/pets'>Pets</a></li>
                 <li><a routerLink="/people">People</a></li>
                 <li><a routerLink="/adoptions">Adoptions</a></li>
@@ -18,10 +18,11 @@
                 <li><a routerLink="/add_person">Add person</a></li>
                 <li><a routerLink="/add_adoption">Add adoption</a></li>
                 <li><a routerLink="/requests">Requests</a></li>
+              </div>
+              <div class="right-links">
                 <li><a routerLink="/login_guest" (click)="logout()" class="logout1">Logout</a></li>
               </div>
             </router-outlet>
-            
         </ul>
         </div>
     </div>
@@ -36,12 +37,15 @@
       <ul class="nav nav-bar">
           <router-outlet>
             <div class="justLinks">
+              <div class = "left-links"></div>
               <li><a routerLink='/pets'>Pets</a></li>
               <li><a routerLink="/requests">My adoptions</a></li>
+            </div>
+            <div class = "right-links">
               <li><a routerLink="/login_guest" (click)="logout()" class="logout2">Logout</a></li>
             </div>
           </router-outlet>
-          
+
       </ul>
       </div>
   </div>
@@ -61,7 +65,7 @@
               <li><a routerLink='/login'>Shelter login</a></li>
             </div>
           </router-outlet>
-          
+
       </ul>
       </div>
   </div>

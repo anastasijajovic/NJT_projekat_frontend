@@ -1,13 +1,28 @@
 <div class="gridContainer">
-    
-        <div class="onesPersonInfo">
-        <h4><b>JMBG:</b> {{person.jmbg}}</h4>
-        <h4><b>Name:</b> {{person.name}}</h4>
-        <h4><b>Surname:</b> {{person.surname}}</h4>
-        <h4><b>Birth year:</b> {{person.year_of_birth}}</h4>
-        <h4><b>Phone number:</b> {{person.phone_number}}</h4>
-        <h4><b>City:</b> {{person.city.name}}</h4>
-        <h4 class="buttons"><button class="button" (click)="update(person.jmbg)">Change</button><button class="button" (click)="delete(person.jmbg)">Delete</button></h4>
-        </div>
-    
+
+  <div class="personCard">
+
+    <div class="info">
+
+      <h4><span>JMBG:</span> {{person.jmbg}}</h4>
+      <h4><span>Name:</span> {{person.name}}</h4>
+      <h4><span>Surname:</span> {{person.surname}}</h4>
+
+
+      <h4><span>Username:</span> {{person.username}}</h4>
+      <h4><span>Password:</span> ••••••••</h4>
+
+      <h4><span>Birth year:</span> {{person.year_of_birth}}</h4>
+      <h4><span>Phone:</span> {{person.phone_number}}</h4>
+      <h4><span>City:</span> {{person.city.name}}</h4>
+
+    </div>
+
+    <div class="buttons">
+      <button class="button" (click)="update(person.jmbg)">Change</button>
+      <button class="button delete" (click)="delete(person.jmbg)">Delete</button>
+    </div>
+
+  </div>
+
 </div>

@@ -1,21 +1,41 @@
 <div class="gridContainer">
+
+  <div class="petCard">
+
+    <img [src]="pet.image" alt="pet image" class="petImage">
+
     <div class="petInfo">
-        <img src="{{pet.image}}" alt="petsimage" class="petImage">
-        <h4>Name: {{pet.name}}</h4>
-        <h4>Age: {{pet.age}}</h4>
-        <h4>Type: {{pet.type.name}}</h4>
-        <h4>Gender: {{pet.gender}}</h4>
-        <h4>Description: {{pet.description}}</h4>
-        <h4 class="buttons" *ngIf="userService.getUserStatus()=='worker'">
-            <button (click)="update(pet.id)" class="button">Change</button>
-            <button (click)="delete(pet.id)" class="button">Delete</button>
-        </h4>
-        <h4 class="adopt" *ngIf="personService.getUserStatus()=='guest' && pet.status==1">
-            <button (click)="adopt(pet.id)" class="button">Adopt</button>
-        </h4>
-        <h4 class="adopt" *ngIf="personService.getUserStatus()=='guest' && pet.status==0" style="color: red">
-            Adopted!
-        </h4>
+
+      <h4><span>Name:</span> {{pet.name}}</h4>
+      <h4><span>Age:</span> {{pet.age}}</h4>
+      <h4><span>Type:</span> {{pet.type.name}}</h4>
+      <h4><span>Gender:</span> {{pet.gender}}</h4>
+      <h4><span>Description:</span> {{pet.description}}</h4>
 
     </div>
+
+    <!-- WORKER ACTIONS -->
+    <div class="buttons" *ngIf="userService.getUserStatus()=='worker'">
+      <button (click)="update(pet.id)" class="button">Change</button>
+      <button (click)="delete(pet.id)" class="button delete">Delete</button>
+    </div>
+
+    <!-- GUEST ACTION -->
+    <div class="adopt" *ngIf="personService.getUserStatus()=='guest'">
+
+      <button
+        *ngIf="pet.status==1"
+        (click)="adopt(pet.id)"
+        class="button adoptBtn">
+        Adopt
+      </button>
+
+      <div *ngIf="pet.status==0" class="adopted">
+        Adopted
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

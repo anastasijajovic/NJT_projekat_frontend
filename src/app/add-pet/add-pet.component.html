@@ -1,45 +1,58 @@
 <h1>Add New Pet</h1>
-<form [formGroup] = "newPetForm" action="#" id="form" (ngSubmit) = "addPet()">
 
-    <input type="hidden" autocomplete="on" [formControlName]="'petId'">
+<div class="form-container">
 
-    <label >Name:   </label>
-    <input type="text" name="name" [formControlName]="'petName'" autocomplete="on">
-    <br>
-    <br>
+  <form [formGroup]="newPetForm" (ngSubmit)="addPet()" class="form-card">
 
-    <label >Type:   </label>
-    <select [formControlName]="'petType'">
-        <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
-      </select>
-    <br>
-    <br>
+    <div class="row">
 
-    <label >Gender:   </label>
-    <select name="gender" id="gender" [formControlName]="'petGender'">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-    </select>
-    <br>
-    <br>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" formControlName="petName">
+      </div>
 
-    <label >Age:   </label>
-    <input type="text" name="age" [formControlName]="'petAge'">
-    <br>
-    <br>
+      <div class="field">
+        <label>Type</label>
+        <select formControlName="petType">
+          <option *ngFor="let type of types" [value]="type.id">
+            {{type.name}}
+          </option>
+        </select>
+      </div>
 
-    <label >Description:   </label>
-    <textarea type="text" name="description" [formControlName]="'petDescription'"></textarea>
-    <br>
-    <br>
+      <div class="field">
+        <label>Gender</label>
+        <select formControlName="petGender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
 
-    <label >Image:   </label>
-    <input type="text" name="image" [formControlName]="'petImage'">
-    <br>
-    <br>
-    <br>
-
-    <div class="buttons">
-        <input type="submit" value="Add" class="button">
     </div>
-</form>
+
+    <div class="row">
+
+      <div class="field">
+        <label>Age</label>
+        <input type="text" formControlName="petAge">
+      </div>
+
+      <div class="field">
+        <label>Description</label>
+        <textarea formControlName="petDescription"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Image</label>
+        <input type="text" formControlName="petImage">
+      </div>
+
+    </div>
+
+    <button type="submit" class="button">
+      Add Pet
+    </button>
+
+  </form>
+
+</div>

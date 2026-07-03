@@ -1,7 +1,7 @@
 /* Plava pozadina koja se stapa sa originalnom */
 .page-background {
-  background-color: #6396e8; /* Tačna svetlo plava nijansa sa slike */
-  min-height: calc(100vh - 60px); 
+  background-color:  rgb(201, 150, 208); /* Tačna svetlo plava nijansa sa slike */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,18 +26,14 @@
 .card {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* --- LEVA KARTICA: FORMA --- */
 .form-card {
-  width: 380px;
-  height: 420px; /* Ista visina kao i slika */
+  width: 400px;
   padding: 40px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .form-card h2 {
@@ -47,6 +43,7 @@
   margin-bottom: 30px;
   font-size: 26px;
   font-weight: 700;
+  font-weight: bold;
 }
 
 .form-group {
@@ -77,7 +74,7 @@
 }
 
 .form-group input:focus {
-  border-color: #1e509c; 
+  border-color: rgb(86, 0, 0);
 }
 
 .buttons {
@@ -88,7 +85,7 @@
 }
 
 .btn-primary {
-  background-color: #1e509c; /* Tamno plava boja dugmeta (kao u headeru) */
+  background-color: rgb(86, 0, 0);
   color: white;
   border: none;
   border-radius: 6px;
@@ -99,7 +96,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #153b75;
+  background-color: rgb(151 22 22);
 }
 
 .register-link {
@@ -110,7 +107,7 @@
 }
 
 .register-link a {
-  color: #3b82f6;
+  color: rgb(151 22 22);
   text-decoration: none;
 }
 
@@ -120,17 +117,18 @@
 
 /* --- DESNA KARTICA: SLIKA --- */
 .image-card {
-  width: 480px;
-  height: 420px; 
+  width: 450px;
+  height: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Da slika ne prelazi zaobljene ivice kartice */
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Savršeno uklapa tvoj screenshot u karticu */
-  border-radius: 12px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }

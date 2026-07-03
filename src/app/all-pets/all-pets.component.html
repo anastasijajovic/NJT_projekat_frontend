@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>All Pets</title>
-        
-    </head>
+<head>
+  <title>All Pets</title>
+</head>
 
-    <body>
-        <h1>All Pets</h1>
-        <div class="searchPets">
-        <input (input)="onSearch(search.value)" type="text" placeholder="Search by pet name" #search class="search">
-    </div>
-        <div class="pets">
-        <app-pet-card *ngFor="let p of filteredPets"
-       [pet]="p"
-       (removedPet)="deletePet(p)"
+<body>
+<h1>All Pets</h1>
 
-       ></app-pet-card>
-    </div>
-    </body>
+<div class="searchPets">
+  <input
+    (input)="onSearch(search.value)"
+    type="text"
+    placeholder="Search by pet name"
+    #search
+    class="search"
+  >
+</div>
 
+<div class="pets">
+  <app-pet-card
+    *ngFor="let p of filteredPets"
+    [pet]="p"
+    (removedPet)="deletePet(p)">
+  </app-pet-card>
+</div>
+</body>
+</html>

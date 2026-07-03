@@ -2,26 +2,27 @@ h1{
     text-align: center;
 }
 
+
 app-pet-card{
-    border: 5px;
-    border-color: rgb(255, 164, 27);
+
     margin-right: 10px;
     margin-bottom: 15px;
 }
 
-.pets{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 12%;
-    margin-right: 8%;
-    margin-top: 5%;
-    align-items: center;
+.pets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px auto;
+  max-width: 1400px;
+  padding-bottom: 100px;
 }
 
-.searchPets{
-    position: right;
-    padding-left: 75%;
-    right: 150px;
+.searchPets {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8%;
 }
 
 .search{
@@ -33,6 +34,12 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-y: scroll;
     height: 100vh;
-    margin: auto;
-    padding-bottom: 10%;
+    padding-bottom: 20%;
+    background-color: rgb(201, 150, 208);
+    margin: 0;
+    min-height: 100vh;
+}
+
+app-pet-card {
+  display: block;
 }

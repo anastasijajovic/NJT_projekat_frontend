@@ -1,35 +1,49 @@
 <h1>Add New Adoption</h1>
-<form [formGroup] = "newAdoptionForm" action="#" id="form" (ngSubmit) = "addAdoption()">
 
-    <input type="hidden" autocomplete="on" [formControlName]="'adoptionId'">
+<div class="form-container">
 
-    <label >Date of adoption:   </label>
-    <input type="date" name="adoptionDate" [formControlName]="'adoptionDate'" autocomplete="on">
-    <br>
-    <br>
+  <form [formGroup]="newAdoptionForm" (ngSubmit)="addAdoption()" class="form-card">
 
-    <label >Vet report before adoption:   </label>
-    <!-- <input type="text" name="adoptionVetReport" [formControlName]="'adoptionVetReport'" autocomplete="on"> -->
-    <textarea name="adoptionVetReport" [formControlName]="'adoptionVetReport'"></textarea>
-    <br>
-    <br>
+    <div class="row">
 
-    <label >Pet:   </label>
-    <select [formControlName]="'adoptionPet'">
-        <option *ngFor="let pet of pets" value="{{pet.id}}">{{pet.type.name}} {{pet.name}}</option>
-      </select>
-    <br>
-    <br>
+      <div class="field">
+        <label>Date of adoption</label>
+        <input type="date" formControlName="adoptionDate">
+      </div>
 
-    <label >Person:   </label>
-    <select [formControlName]="'adoptionPerson'">
-        <option *ngFor="let person of people" value="{{person.jmbg}}">{{person.name}} {{person.surname}}</option>
-      </select>
-    <br>
-    <br>
-    <br>
+      <div class="field">
+        <label>Vet report</label>
+        <textarea formControlName="adoptionVetReport"></textarea>
+      </div>
 
-    <div class="buttons">
-      <input type="submit" value="Create new adoption" class="button">
     </div>
-</form>
+
+    <div class="row">
+
+      <div class="field">
+        <label>Pet</label>
+        <select formControlName="adoptionPet">
+          <option *ngFor="let pet of pets" [value]="pet.id">
+            {{pet.type.name}} {{pet.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Person</label>
+        <select formControlName="adoptionPerson">
+          <option *ngFor="let person of people" [value]="person.jmbg">
+            {{person.name}} {{person.surname}}
+          </option>
+        </select>
+      </div>
+
+    </div>
+
+    <button type="submit" class="button">
+      Create new adoption
+    </button>
+
+  </form>
+
+</div>

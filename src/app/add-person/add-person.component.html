@@ -1,40 +1,68 @@
 <h1>Add New Person</h1>
-<form [formGroup] = "newPersonForm" action="#" id="form" (ngSubmit) = "addPerson()">
 
-    <label>JMBG:   </label>
-    <input type="text" autocomplete="on" [formControlName]="'personJmbg'">
-    <br>
-    <br>
+<div class="form-container">
 
-    <label >Name:   </label>
-    <input type="text" name="name" [formControlName]="'personName'" autocomplete="on">
-    <br>
-    <br>
+  <form [formGroup]="newPersonForm" (ngSubmit)="addPerson()" class="form-card">
 
-    <label >Surname:   </label>
-    <input type="text" name="surname" [formControlName]="'personSurname'">
-    <br>
-    <br>
+    <div class="row">
+      <div class="field">
+        <label>JMBG</label>
+        <input type="text" formControlName="personJmbg">
+      </div>
 
-    <label >Year of birth:   </label>
-    <input type="text" name="year" [formControlName]="'personYear'">
-    <br>
-    <br>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" formControlName="personName">
+      </div>
 
-    <label >Phone number:   </label>
-    <input type="text" name="phone" [formControlName]="'personPhone'">
-    <br>
-    <br>
-
-    <label >City:   </label>
-    <select [formControlName]="'personCity'">
-        <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
-      </select>
-    <br>
-    <br>
-    <br>
-
-    <div class="buttons">
-      <input type="submit" value="Add" class="button">
+      <div class="field">
+        <label>Surname</label>
+        <input type="text" formControlName="personSurname">
+      </div>
     </div>
-</form>
+
+    <!-- 🔥 NEW ROW (username + password + year) -->
+    <div class="row">
+
+      <div class="field">
+        <label>Username</label>
+        <input type="text" formControlName="personUsername">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input type="password" formControlName="personPassword">
+      </div>
+
+      <div class="field">
+        <label>Year of birth</label>
+        <input type="text" formControlName="personYear">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="field">
+        <label>Phone number</label>
+        <input type="text" formControlName="personPhone">
+      </div>
+
+      <div class="field">
+        <label>City</label>
+        <select formControlName="personCity">
+          <option *ngFor="let city of cities" [value]="city.id">
+            {{city.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="field"></div>
+
+    </div>
+
+    <button type="submit" class="button">Add Person</button>
+
+  </form>
+
+</div>

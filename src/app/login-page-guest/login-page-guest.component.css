@@ -1,7 +1,7 @@
 /* Plava pozadina koja pokriva ceo ekran */
 .page-background {
-  background-color: #6798e6; 
-  min-height: calc(100vh - 64px); 
+  background-color: rgb(201, 150, 208);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,8 @@
 .content-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 30px; 
-  max-width: 1000px;
+  gap: 25px;
+  max-width: 950px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
 .card {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* --- LEVA KARTICA: FORMA --- */
@@ -40,6 +40,7 @@
   margin-top: 0;
   margin-bottom: 30px;
   font-size: 28px;
+  font-weight: 700;
   font-weight: bold;
 }
 
@@ -71,7 +72,7 @@
 }
 
 .form-group input:focus {
-  border-color: #1e40af; 
+  border-color: #1e40af;
 }
 
 .buttons {
@@ -82,7 +83,7 @@
 }
 
 .btn-primary {
-  background-color: #1c529b; 
+  background-color: rgb(86, 0, 0);
   color: white;
   border: none;
   border-radius: 6px;
@@ -94,7 +95,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #17407a;
+  background-color: rgb(151 22 22);
 }
 
 .register-link {
@@ -104,7 +105,7 @@
 }
 
 .register-link a {
-  color: #6798e6;
+  color: rgb(151 22 22);
   text-decoration: none;
   font-weight: 600;
 }
@@ -116,7 +117,7 @@
 /* --- DESNA KARTICA: SLIKA --- */
 .image-card {
   width: 450px;
-  height: 420px; 
+  height: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,7 +128,7 @@
 .image-card img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
   border-radius: 8px;
 }
 
