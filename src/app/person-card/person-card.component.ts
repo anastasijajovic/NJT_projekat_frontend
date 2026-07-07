@@ -16,13 +16,16 @@ export class PersonCardComponent {
 
   constructor(private personService: personService, private router: Router){}
 
-  delete(jmbg: String){
-    // console.log(jmbg);
-    // this.personService.deletePerson(jmbg).subscribe((res)=>{
-    //   console.log(res);
-    //   alert([res.message]);
-      this.removedPerson.emit(this.person);
-    // })
+  delete(jmbg: String) {
+    this.personService.deletePerson(jmbg).subscribe({
+      next: (res) => {
+        this.removedPerson.emit(this.person);
+      },
+      error: (err) => {
+        console.error('Server error:', err);
+        alert('This person cannot be deleted because they have associated adoptions.');
+      }
+    });
   }
 
   update(jmbg: String){

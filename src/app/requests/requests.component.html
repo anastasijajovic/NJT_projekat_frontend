@@ -1,37 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Requests for adoption</title>
-        
-    </head>
+<!-- Prikaz za WORKER-a -->
+<div *ngIf="userService.getUserStatus() == 'worker'">
+  <h1>Requests for adoption</h1>
 
-    <body>
-        <div *ngIf="userService.getUserStatus()=='worker'">
-            <h1>Requests for adoption</h1>
-        
-        <div class="adoptions">
-            <app-adoption-card *ngFor="let a of adoptions"
-            [adoption] = "a"
-            [comeFrom]="2"
-            (declinedAdoption)="decline(a.adoptionId)"
-            (acceptedAdoption)="accept(a.adoptionId)"
-            ></app-adoption-card>
-        </div>
-        </div>
-        
+  <!-- Ako ima zahteva, prikaži kartice -->
+  <div class="adoptions" *ngIf="adoptions && adoptions.length > 0">
+    <app-adoption-card *ngFor="let a of adoptions"
+                       [adoption]="a"
+                       [comeFrom]="2"
+                       (declinedAdoption)="decline(a.adoptionId)"
+                       (acceptedAdoption)="accept(a.adoptionId)">
+    </app-adoption-card>
+  </div>
 
-        <div *ngIf="personService.getUserStatus()=='guest'">
-            <h1>My requests</h1>
-        
-        <div class="adoptions">
-            <app-adoption-card *ngFor="let a of personAdoptions"
-            [adoption] = "a"
-            [comeFrom]="3"
-            (declinedAdoption)="decline(a.adoptionId)"
-            (acceptedAdoption)="accept(a.adoptionId)"
-            ></app-adoption-card>
-        </div>
-        </div>
-        
-    </body>
+  <!-- Ako nema zahteva, prikaži poruku na engleskom -->
+  <div class="no-requests" *ngIf="!adoptions || adoptions.length == 0">
+    <p>You currently have no requests.</p>
+  </div>
+</div>
 
+
+<!-- Prikaz za GUEST-a -->
+<div *ngIf="personService.getUserStatus() == 'guest'">
+  <h1>My requests</h1>
+
+  <!-- Ako ima zahteva, prikaži kartice -->
+  <div class="adoptions" *ngIf="personAdoptions && personAdoptions.length > 0">
+    <app-adoption-card *ngFor="let a of personAdoptions"
+                       [adoption]="a"
+                       [comeFrom]="3"
+                       (declinedAdoption)="decline(a.adoptionId)"
+                       (acceptedAdoption)="accept(a.adoptionId)">
+    </app-adoption-card>
+  </div>
+
+  <!-- Ako nema zahteva, prikaži poruku na engleskom -->
+  <div class="no-requests" *ngIf="!personAdoptions || personAdoptions.length == 0">
+    <p>You currently have no requests.</p>
+  </div>
+</div>

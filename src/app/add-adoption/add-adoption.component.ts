@@ -15,19 +15,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-adoption.component.css']
 })
 export class AddAdoptionComponent {
-    
+
   public newAdoptionForm!: FormGroup;
   public pets!: Pet[];
   public people!: Person[];
 
-
-  constructor(private adoptionService: adoptionService, private petService: petService, private personService: personService, private formBuilder: FormBuilder, private router: Router){
-
-
-
+  constructor(
+    private adoptionService: adoptionService,
+    private petService: petService,
+    private personService: personService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    // Ovde smo promenili new Date() u prazan string ''
     this.newAdoptionForm = formBuilder.group({
       adoptionId: new FormControl(),
-      adoptionDate: new FormControl(new Date(), Validators.required),
+      adoptionDate: new FormControl('', Validators.required),
       adoptionVetReport: new FormControl('', Validators.required),
       adoptionPet: new FormControl('', Validators.required),
       adoptionPerson: new FormControl('', Validators.required)
@@ -52,41 +55,43 @@ export class AddAdoptionComponent {
     if(!this.newAdoptionForm.valid){
       alert("All fields are required!");
       return;
-    }else{
+    } else {
       const adoption = new Adoption;
 
-      adoption.date= this.newAdoptionForm.get('adoptionDate')!.value;
+      adoption.date = this.newAdoptionForm.get('adoptionDate')!.value;
       adoption.vetReport = this.newAdoptionForm.get('adoptionVetReport')!.value;
 
       var pet = new Pet;
       this.pets.forEach(element => {
-        if(element.id== this.newAdoptionForm.get('adoptionPet')!.value){
-          pet=element;
+        if(element.id == this.newAdoptionForm.get('adoptionPet')!.value){
+          pet = element;
         }
       });
-      pet.status=0;
 
-      this.petService.updatePet(pet).subscribe((res)=>{
-        console.log(res);
-      })
+      // Postavljamo status na 0 (udomljeno)
+      pet.status = 0;
 
-      adoption.petId=pet;
-      
+      this.petService.updatePet(pet).subscribe((res) => {
+        console.log("Pet updated status:", res);
+      });
+
+      adoption.petId = pet;
+
       var person = new Person;
       this.people.forEach(element => {
-        if(element.jmbg== this.newAdoptionForm.get('adoptionPerson')!.value){
-          person=element;
+        if(element.jmbg == this.newAdoptionForm.get('adoptionPerson')!.value){
+          person = element;
         }
       });
-      adoption.personId=person;
 
+      adoption.personId = person;
       adoption.status = 1;
 
-      this.adoptionService.addNewAdoption(adoption).subscribe((res)=>{
+      this.adoptionService.addNewAdoption(adoption).subscribe((res) => {
         console.log(res);
         alert(res.message);
         this.router.navigate(['/adoptions']);
-      })
+      });
     }
   }
 }

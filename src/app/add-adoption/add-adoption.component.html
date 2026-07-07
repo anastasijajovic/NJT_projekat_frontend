@@ -5,21 +5,6 @@
   <form [formGroup]="newAdoptionForm" (ngSubmit)="addAdoption()" class="form-card">
 
     <div class="row">
-
-      <div class="field">
-        <label>Date of adoption</label>
-        <input type="date" formControlName="adoptionDate">
-      </div>
-
-      <div class="field">
-        <label>Vet report</label>
-        <textarea formControlName="adoptionVetReport"></textarea>
-      </div>
-
-    </div>
-
-    <div class="row">
-
       <div class="field">
         <label>Pet</label>
         <select formControlName="adoptionPet">
@@ -37,7 +22,20 @@
           </option>
         </select>
       </div>
+    </div>
 
+    <div class="row">
+      <div class="field">
+        <label>Date of adoption</label>
+        <input type="date" formControlName="adoptionDate" class="custom-date">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Vet report</label>
+        <textarea formControlName="adoptionVetReport"></textarea>
+      </div>
     </div>
 
     <button type="submit" class="button">

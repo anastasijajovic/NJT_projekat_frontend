@@ -20,73 +20,136 @@ export class UpdatePetComponent {
   public pet1!: Pet;
   public pets!: Pet[];
 
-  constructor(private route: ActivatedRoute,private petService: petService, private typeService: typeService, private formBuilder: FormBuilder, private router:Router){
+  constructor(
+    private route: ActivatedRoute,
+    private petService: petService,
+    private typeService: typeService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+
+    // Kreiranje forme
+    this.updatePetForm = formBuilder.group({
+      petId: new FormControl(),
+      petName: new FormControl('', Validators.required),
+      petType: new FormControl('', Validators.required),
+      petGender: new FormControl('', Validators.required),
+      petAge: new FormControl('', Validators.required),
+      petDescription: new FormControl(),
+      petImage: new FormControl(),
+    });
+
+
+    // Uzimanje ID-a iz rute
     this.route.params.subscribe((params) => {
       this.receivedInput = params['input'];
-      });
-  
-      this.typeService.getAll().subscribe({
-        next:(response: HttpResponse)=>{
-          this.types = response.data.values as Type[];
+    });
+
+
+    // Uzimanje tipova
+    this.typeService.getAll().subscribe({
+      next: (response: HttpResponse) => {
+        this.types = response.data.values as Type[];
+      }
+    });
+
+
+    // Uzimanje svih petova i pronalazak onog koji se menja
+    this.petService.getAll().subscribe((response) => {
+
+      this.pets = response.data.values as Pet[];
+
+      console.log("usao u uzimanje svih");
+      console.log(this.receivedInput);
+      console.log(this.pets);
+
+
+      this.pets.forEach(element => {
+
+        if(element.id == this.receivedInput) {
+
+          this.pet1 = element;
+
+          console.log("uzeta vrednost za pet1");
+          console.log(this.pet1);
+
+
+          // Popunjavanje forme postojecim podacima
+          this.updatePetForm.patchValue({
+            petId: this.pet1.id,
+            petName: this.pet1.name,
+            petType: this.pet1.type.id,
+            petGender: this.pet1.gender,
+            petAge: this.pet1.age,
+            petDescription: this.pet1.description,
+            petImage: this.pet1.image
+          });
+
         }
-      })
-  
-      this.petService.getAll().subscribe((response)=>{
-        this.pets=response.data.values as Pet[];
-        console.log("usao u uzimanje svih");
-        console.log(this.receivedInput);
-        console.log(this.pets);
 
-        this.pets.forEach(element => {
-          if(element.id==this.receivedInput){
-            this.pet1=element;
-            console.log("uzeta vrednost za pet1");
-            console.log(this.pet1);
-          }
-        });
-           
       });
 
-      this.updatePetForm = formBuilder.group({
-        petId: new FormControl(),
-        petName: new FormControl('', Validators.required),
-        petType: new FormControl('', Validators.required),
-        petGender: new FormControl('', Validators.required),
-        petAge: new FormControl('', Validators.required),
-        petDescription: new FormControl(),
-        petImage: new FormControl(),
-      });
+    });
+
   }
 
+
   updatePet(){
+
     if(!this.updatePetForm.valid){
+
       alert("All fields are required!");
       return;
-    }else{
-      const pet = new Pet;
 
-      pet.id=this.receivedInput;
-      pet.name= this.updatePetForm.get('petName')!.value;
-      var type = new Type;
+    } else {
+
+      const pet = new Pet();
+
+      pet.id = this.receivedInput;
+
+      pet.name = this.updatePetForm.get('petName')!.value;
+
+
+      var type = new Type();
+
       this.types.forEach(element => {
-        if(element.id== this.updatePetForm.get('petType')!.value){
-          type=element;
+
+        if(element.id == this.updatePetForm.get('petType')!.value){
+
+          type = element;
+
         }
+
       });
-      pet.type= type;
-      pet.gender= this.updatePetForm.get('petGender')!.value;
-      pet.description= this.updatePetForm.get('petDescription')!.value;
-      pet.age= Number(this.updatePetForm.get('petAge')!.value);
-      pet.image= this.updatePetForm.get('petImage')!.value;
+
+
+      pet.type = type;
+
+      pet.gender = this.updatePetForm.get('petGender')!.value;
+
+      pet.description = this.updatePetForm.get('petDescription')!.value;
+
+      pet.age = Number(this.updatePetForm.get('petAge')!.value);
+
+      pet.image = this.updatePetForm.get('petImage')!.value;
+
+
       console.log(pet.name);
       console.log(pet.id);
 
+
       this.petService.updatePet(pet).subscribe((res)=>{
+
         console.log(res);
+
         alert(res.message);
+
         this.router.navigate(['/pets']);
-      })
+
+      });
+
     }
-    
+
   }
+
 }

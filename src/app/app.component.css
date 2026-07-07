@@ -1,66 +1,69 @@
 .container{
-    position: sticky;
-    display: inline-block;
-    background-color: rgb(86, 0, 0);
-    border: 2px;
+  position: sticky;
+  display: inline-block;
+  background-color: rgb(86, 0, 0);
+  border: 2px;
 }
+
+/* OVO SADA IDE SVE NA LEVU STRANU */
 .justLinks{
-    background-color: rgb(137, 197, 160);
+  background-color: rgb(137, 197, 160);
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
 
-.left-links,
+/* OVO SADA IDE SVE NA LEVU STRANU */
+.left-links {
+  background-color: rgb(137, 197, 160);
+  display: flex;
+  align-items: center;
+
+  display: flex;
+  align-items: center;
+}
+
+/* JEDINO OVO OSTAJE NA DESNOJ STRANI */
 .right-links {
   background-color: rgb(137, 197, 160);
   display: flex;
   align-items: center;
-  margin-left: auto;
-
-}
-
-.right-links {
-  background-color: rgb(137, 197, 160);
-  right: 0; /* gura sve u desno */
+  margin-left: auto;     /* Lepi se desno */
+  right: 0;              /* gura sve u desno */
   position: absolute;
   top: 0;
 }
 
 ul {
-    list-style-type: none;
-
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 ul li {
   display: flex;
   align-items: center;
-
 }
 
-
 li a {
-    display: inline-block;
-    color: rgb(86, 0, 0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: inline-block;
+  color: rgb(86, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover {
-    background-color: rgb(104, 147, 120);
+  background-color: rgb(104, 147, 120);
 }
 
 body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: flex;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
 }
 
 html, body {
@@ -68,4 +71,3 @@ html, body {
   min-height: 100%;
   background-color: rgb(201, 150, 208);
 }
-

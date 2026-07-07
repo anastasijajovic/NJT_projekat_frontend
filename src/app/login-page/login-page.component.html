@@ -1,11 +1,11 @@
 <div class="page-background">
   <div class="content-wrapper">
-    
+
     <div class="card form-card">
       <h2>Login</h2>
-      
+
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        
+
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" formControlName="username" placeholder="Enter username">
@@ -20,9 +20,7 @@
           <button type="submit" class="btn-primary">Login</button>
         </div>
 
-        <div class="register-link">
-          You don't have an account? <a routerLink="/register">Register here!</a>
-        </div>
+
 
       </form>
     </div>

@@ -1,22 +1,42 @@
-h1{
-    text-align: center;
-    margin-bottom: 60px;
+h1 {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.adoptions{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 11%;
-    margin-right: 8%;
-    margin-top: 5%;
-    align-items: center;
+.adoptions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 11%;
+  margin-right: 8%;
+  margin-top: 5%;
+  align-items: center;
+
+  gap: 30px;
+
+  justify-content: flex-start;
 }
 
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    overflow-y: scroll;
-    height: 100vh;
-    margin: auto;
-    padding-bottom: 10%;
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow-y: scroll;
+  height: 100vh;
+  margin: auto;
+  padding-bottom: 10%;
 }
 
+/* Stil za poruku kada nema zahteva */
+.no-requests {
+  display: flex;
+  justify-content: center;   /* Centriranje po horizontali */
+  align-items: center;       /* Centriranje po vertikali */
+  min-height: 40vh;          /* Drži poruku na sredini prostora ispod naslova */
+  width: 100%;               /* Širi se preko celog ekrana radi tačnog centriranja */
+  text-align: center;
+}
+
+.no-requests p {
+  font-size: 22px;           /* Lepa, čitljiva veličina */
+  font-weight: bold;
+  color: #ffffff;            /* Bela boja teksta */
+  margin: 0;
+}
