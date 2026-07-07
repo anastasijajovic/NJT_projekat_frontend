@@ -5,6 +5,7 @@
   <form [formGroup]="newAdoptionForm" (ngSubmit)="addAdoption()" class="form-card">
 
     <div class="row">
+<<<<<<< HEAD
       <div class="field">
         <label>Pet</label>
         <select formControlName="adoptionPet">
@@ -36,6 +37,41 @@
         <label>Vet report</label>
         <textarea formControlName="adoptionVetReport"></textarea>
       </div>
+=======
+
+      <div class="field">
+        <label>Date of adoption</label>
+        <input type="date" formControlName="adoptionDate">
+      </div>
+
+      <div class="field">
+        <label>Vet report</label>
+        <textarea formControlName="adoptionVetReport"></textarea>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="field">
+        <label>Pet</label>
+        <select formControlName="adoptionPet">
+          <option *ngFor="let pet of pets" [value]="pet.id">
+            {{pet.type.name}} {{pet.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Person</label>
+        <select formControlName="adoptionPerson">
+          <option *ngFor="let person of people" [value]="person.jmbg">
+            {{person.name}} {{person.surname}}
+          </option>
+        </select>
+      </div>
+
+>>>>>>> b01900e (Izmene css i html)
     </div>
 
     <button type="submit" class="button">
