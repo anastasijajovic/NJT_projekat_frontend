@@ -107,3 +107,42 @@
 
   font-weight: bold;
 }
+
+.gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.petImage {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.galleryArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.galleryArrow:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.galleryArrowLeft {
+  left: 8px;
+}
+
+.galleryArrowRight {
+  right: 8px;
+}

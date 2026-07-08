@@ -16,13 +16,7 @@ h1 {
   justify-content: flex-start;
 }
 
-body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  overflow-y: scroll;
-  height: 100vh;
-  margin: auto;
-  padding-bottom: 10%;
-}
+
 
 /* Stil za poruku kada nema zahteva */
 .no-requests {

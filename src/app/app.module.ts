@@ -26,6 +26,7 @@ import { AdoptionCardComponent } from './adoption-card/adoption-card.component';
 import { LoginPageGuestComponent } from './login-page-guest/login-page-guest.component';
 import { RequestsComponent } from './requests/requests.component';
 import { RegisterComponent } from './register/register.component'
+import { RequestRegistrationComponent } from './request-registration/request-registration.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RegisterComponent } from './register/register.component'
     LoginPageGuestComponent,
     RequestsComponent,
     RegisterComponent,
+    RequestRegistrationComponent,
   ],
   imports: [
     BrowserModule,

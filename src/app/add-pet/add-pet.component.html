@@ -43,8 +43,38 @@
       </div>
 
       <div class="field">
-        <label>Image</label>
-        <input type="text" formControlName="petImage">
+
+        <label>Images</label>
+
+        <input
+          type="file"
+          multiple
+          (change)="selectImages($event)"
+        >
+
+
+        <div *ngFor="let img of selectedImages; let i=index">
+
+
+          <label>
+
+            <input
+              type="radio"
+              name="primary"
+              [checked]="i==primaryImageIndex"
+              (change)="setPrimary(i)"
+            >
+
+            {{img.name}}
+
+            (Primary)
+
+          </label>
+
+
+        </div>
+
+
       </div>
 
     </div>

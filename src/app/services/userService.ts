@@ -10,15 +10,15 @@ import {HttpResponse} from 'src/app/network/HttpResponse';
 export class userService{
 
     constructor(private http: HttpClient){}
-    
+
     public login(username: String, password:String): Observable <HttpResponse>{
         return this.http.get<HttpResponse>(environment.backendServerUrl + "/users/login/"+username+"/"+password);
     }
 
-    public setSessionData(res:any){
-        sessionStorage.setItem('user', String(res.username));
-        this.setUserStatus();
-    }
+  public setSessionData(res: any) {
+    sessionStorage.setItem('user', String(res.data.username));
+    this.setUserStatus();
+  }
 
     public setUserStatus(){
         sessionStorage.setItem('currentUser', 'worker');

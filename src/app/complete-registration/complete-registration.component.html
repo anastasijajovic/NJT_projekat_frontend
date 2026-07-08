@@ -1,0 +1,17 @@
+<div class="register-container">
+  <h2>Popunite podatke</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="completeRegistration()">
+    <input formControlName="jmbg" placeholder="JMBG">
+    <input formControlName="name" placeholder="Ime">
+    <input formControlName="surname" placeholder="Prezime">
+    <input formControlName="year_of_birth" placeholder="Godina rodjenja" type="number">
+    <input formControlName="phone_number" placeholder="Telefon">
+
+    <select formControlName="city">
+      <option *ngFor="let c of cities" [ngValue]="c">{{c.name}}</option>
+    </select>
+
+    <input formControlName="password" placeholder="Lozinka" type="password">
+    <button type="submit" [disabled]="!registerForm.valid">Završi registraciju</button>
+  </form>
+</div>

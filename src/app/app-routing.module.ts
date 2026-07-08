@@ -12,6 +12,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginPageGuestComponent } from './login-page-guest/login-page-guest.component';
 import { RequestsComponent } from './requests/requests.component';
 import { RegisterComponent } from './register/register.component';
+import { RequestRegistrationComponent } from './request-registration/request-registration.component';
 
 const routes: Routes = [
   {path:'', component: LoginPageGuestComponent},
@@ -26,7 +27,10 @@ const routes: Routes = [
   {path:'add_adoption', component: AddAdoptionComponent},
   {path:'login', component: LoginPageComponent},
   {path:'requests', component: RequestsComponent},
-  {path:'register', component: RegisterComponent},
+  // Step 1: user submits their email
+  {path:'register', component: RequestRegistrationComponent},
+  // Step 2: user lands here from the emailed link and fills in the rest
+  {path:'register/:token', component: RegisterComponent},
 ];
 
 @NgModule({

@@ -2,7 +2,28 @@
 
   <div class="petCard">
 
-    <img [src]="pet.image" alt="pet image" class="petImage">
+    <div class="gallery">
+
+      <button
+        class="galleryArrow galleryArrowLeft"
+        (click)="previousImage()"
+        *ngIf="images.length>1">
+        ‹
+      </button>
+
+      <img
+        [src]="images[currentImage]"
+        class="petImage"
+        alt="pet image">
+
+      <button
+        class="galleryArrow galleryArrowRight"
+        (click)="nextImage()"
+        *ngIf="images.length>1">
+        ›
+      </button>
+
+    </div>
 
     <div class="petInfo">
 

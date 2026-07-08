@@ -7,14 +7,45 @@
 <body>
 <h1>All Pets</h1>
 
-<div class="searchPets">
-  <input
-    (input)="onSearch(search.value)"
-    type="text"
-    placeholder="Search by pet name"
-    #search
-    class="search"
-  >
+<h3 class="filters-title">Filters</h3>
+
+<div class="filters">
+
+  <div class="filter-group">
+    <label class="filter-label invisible-label">Search</label>
+    <input
+      type="text"
+      placeholder="Search by name"
+      [(ngModel)]="searchText"
+      (input)="filterPets()">
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Type</label>
+    <select
+      [(ngModel)]="selectedType"
+      (change)="filterPets()">
+
+      <option>All</option>
+      <option>Dog</option>
+      <option>Cat</option>
+      <option>Bird</option>
+      <option>Rabbit</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">Gender</label>
+    <select
+      [(ngModel)]="selectedGender"
+      (change)="filterPets()">
+
+      <option>All</option>
+      <option>male</option>
+      <option>female</option>
+    </select>
+  </div>
+
 </div>
 
 <div class="pets">

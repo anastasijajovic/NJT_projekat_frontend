@@ -46,7 +46,25 @@
 
       <div class="field">
         <label>Image</label>
-        <input type="text" formControlName="petImage">
+        <input
+          type="file"
+          multiple
+          (change)="selectImages($event)">
+
+        <div class="existingImages" *ngIf="existingImages.length>0">
+          <p class="existingImagesLabel">New images to upload:</p>
+          <div class="existingImageItem" *ngFor="let img of existingImages">
+            <img [src]="backendUrl + img.image" class="thumbnail" alt="pet image">
+            <label>
+              <input
+                type="radio"
+                name="primaryImage"
+                [checked]="img.primaryImage"
+                (change)="setPrimary(img.id)">
+              Primarna
+            </label>
+          </div>
+        </div>
       </div>
 
     </div>

@@ -17,7 +17,7 @@ export class petService{
         console.log(pet.id);
         return this.http.post<HttpResponse>(environment.backendServerUrl + "/pets/add", pet);
     }
-    
+
     public getAll(): Observable <HttpResponse>{
         return this.http.get<HttpResponse>(environment.backendServerUrl + "/pets/all")
     }
@@ -41,5 +41,15 @@ export class petService{
     public updatePet(pet:Pet):Observable<HttpResponse>{
         return this.http.post<HttpResponse>(environment.backendServerUrl+"/pets/update", pet);
     }
-   
+
+  public uploadImage(formData: FormData): Observable<HttpResponse>{
+
+    return this.http.post<HttpResponse>(
+      environment.backendServerUrl + "/pets/upload",
+      formData
+    );
+
+  }
+
+
 }

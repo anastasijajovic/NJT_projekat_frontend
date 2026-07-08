@@ -40,7 +40,12 @@ export class AddAdoptionComponent {
   ngOnInit(){
     this.petService.getWithStatus(1).subscribe({
       next:(response: HttpResponse)=>{
+        console.log("PETS RESPONSE:", response);
         this.pets = response.data.values as Pet[];
+        console.log("PETS ARRAY:", this.pets);
+      },
+      error: (err) => {
+        console.log("PETS ERROR:", err);
       }
     })
 

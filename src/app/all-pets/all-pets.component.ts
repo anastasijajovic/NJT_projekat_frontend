@@ -12,44 +12,65 @@ import { Router } from '@angular/router';
 export class AllPetsComponent {
 
   @Input() removedPet!: EventEmitter<Pet>;
+
   public pets!: Pet[];
   public filteredPets: Pet[] = [];
+
+  searchText = "";
+  selectedType = "All";
+  selectedGender = "All";
 
   constructor(private petService: petService, private router: Router){}
 
   ngOnInit(){
+
     this.petService.getAll().subscribe({
+
       next:(response: HttpResponse)=>{
 
         this.pets = response.data.values as Pet[];
-        this.filteredPets=this.pets;
+
+        this.filteredPets = this.pets;
+
       }
+
     })
+
   }
 
   deletePet(p:Pet){
-    this.petService.delete(p.id).subscribe((res)=>{
-      console.log(res);
-      alert([res.message]);
 
-        this.pets.forEach((element,index)=>{
-          if(element.id==p.id) this.pets.splice(index,1);
-       
+    this.petService.delete(p.id).subscribe((res)=>{
+
+      alert(res.message);
+
+      this.pets = this.pets.filter(x=>x.id!=p.id);
+
+      this.filterPets();
+
     });
 
-  });
-}
-
-
-
-  onSearch(search: String){
-    if(!search){
-      this.filteredPets=this.pets;
-    }else{
-      //this.filteredPets= this.petService.searchPets(search) as Pet[];
-      this.petService.searchPets(search).subscribe((res)=>{
-        this.filteredPets = res.data.values as Pet[];
-      })
-    }
   }
+
+  filterPets(){
+
+    this.filteredPets = this.pets.filter(p=>{
+
+      const matchesName =
+        p.name.toLowerCase().includes(this.searchText.toLowerCase());
+
+      const matchesType =
+        this.selectedType=="All" ||
+        p.type.name==this.selectedType;
+
+      const matchesGender =
+        this.selectedGender=="All" ||
+        p.gender==this.selectedGender;
+
+      return matchesName && matchesType && matchesGender;
+
+    });
+
+  }
+
 }

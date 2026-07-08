@@ -13,7 +13,7 @@ export class personService{
     private personthis!: Person;
 
     constructor(private http: HttpClient){}
-    
+
     public getAll(): Observable <HttpResponse>{
         return this.http.get<HttpResponse>(environment.backendServerUrl + "/people/all")
     }
@@ -75,4 +75,14 @@ export class personService{
         sessionStorage.clear();
         this.personthis = new Person();
       }
+
+  public initRegistration(username: string): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/auth/register', { username: username });
+  }
+
+  public completeRegistration(data: any, token: string): Observable<any> {
+    // Backend očekuje @RequestParam String token
+    return this.http.post<any>(`/api/auth/complete?token=${token}`, data);
+  }
+
 }
