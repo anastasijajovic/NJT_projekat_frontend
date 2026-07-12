@@ -50,7 +50,7 @@ export class AddPetComponent {
 
       petAge: new FormControl('', Validators.required),
 
-      petDescription: new FormControl(),
+      petDescription: new FormControl('', Validators.required),
 
       petImage: new FormControl()
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { petService } from '../services/petService';
 import { Pet } from '../model/Pet';
 import { HttpResponse } from '../network/HttpResponse';
@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-pets.component.css']
 })
 export class AllPetsComponent {
-
-  @Input() removedPet!: EventEmitter<Pet>;
 
   public pets!: Pet[];
   public filteredPets: Pet[] = [];

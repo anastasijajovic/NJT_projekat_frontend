@@ -1,50 +1,56 @@
-.container{
-  position: sticky;
-  display: inline-block;
-  background-color: rgb(86, 0, 0);
-  border: 2px;
+.app-wrapper {
+  padding-top: 60px;
 }
 
-/* OVO SADA IDE SVE NA LEVU STRANU */
-.justLinks{
+.navbar.navbar-default {
   background-color: rgb(137, 197, 160);
-  display: flex;
-  align-items: center;
-}
-
-/* OVO SADA IDE SVE NA LEVU STRANU */
-.left-links {
-  background-color: rgb(137, 197, 160);
-  display: flex;
-  align-items: center;
-
-  display: flex;
-  align-items: center;
-}
-
-/* JEDINO OVO OSTAJE NA DESNOJ STRANI */
-.right-links {
-  background-color: rgb(137, 197, 160);
-  display: flex;
-  align-items: center;
-  margin-left: auto;     /* Lepi se desno */
-  right: 0;              /* gura sve u desno */
-  position: absolute;
-  top: 0;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
 }
 
-ul li {
+.container {
+  position: sticky;
+  display: block;
+  width: 100%;
+  background-color: rgb(86, 0, 0);
+  border: 2px;
+}
+
+.justLinks {
+  background-color: rgb(137, 197, 160);
+  display: flex;
+  align-items: center;
+}
+
+.left-links {
+  background-color: rgb(137, 197, 160);
+  display: flex;
+  align-items: center;
+}
+
+.right-links {
+  background-color: rgb(137, 197, 160);
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav.nav-bar li {
   display: flex;
   align-items: center;
 }
@@ -60,5 +66,3 @@ li a {
 li a:hover {
   background-color: rgb(104, 147, 120);
 }
-
-

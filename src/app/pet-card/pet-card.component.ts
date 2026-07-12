@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pet } from '../model/Pet';
 import { Adoption } from '../model/Adoption';
 import { Router } from '@angular/router';
@@ -18,8 +18,8 @@ export class PetCardComponent{
   @Input()
   pet!:Pet;
 
-  @Input()
-  removedPet!:EventEmitter<Pet>;
+  @Output()
+  removedPet = new EventEmitter<Pet>();
 
   public images:string[]=[];
   public currentImage:number=0;
@@ -67,6 +67,11 @@ export class PetCardComponent{
   }
 
   delete(id:Number){
+    if(this.pet.status === 0){
+      alert("This pet is already adopted and cannot be deleted.");
+      return;
+    }
+
     this.removedPet.emit(this.pet);
   }
 
